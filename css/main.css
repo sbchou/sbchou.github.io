@@ -4,6 +4,10 @@
 	margin: 0;
 	padding: 0;
 }
+#wrap{
+	width:960px;
+	margin:0 auto;
+}
 
 body {
 	margin: 0;
@@ -38,6 +42,13 @@ h1 span.profession {
 	font-size: 20px;
 	font-style: normal;
  	color: black;
+}
+
+h1 span.big {
+	font-size: 60px;
+	font-style: normal;
+ 	color: black;
+	font-style: italic;
 }
 
 h2 {
@@ -249,20 +260,89 @@ body#home nav ul li {
 }
 
 /* Vertical Columns */
-.leftcol {
-    float: left;
-    width: 40%;
-    margin-left: 5%;
-    margin-right: 5%;
-    /*background-color: red;*/
-}
 
-.rightcol { 
-    margin-left: 55%;
-    margin-right: 5%;
-    width: 40%;
-	/*background-color: red;*/
+.grid {
 }
+    .grid .col { float: left; }
+
+    .grid .col.s1of1 { width: 100%; }
+    .grid .col.s1of2 { width: 50%; }
+    .grid .col.s1of3 { width: 33.33333333%; }
+    .grid .col.s2of3 { width: 66.66666666%; }
+    .grid .col.s1of4 { width: 25%; }
+    .grid .col.s3of4 { width: 75%; }
+    .grid .col.s1of5 { width: 20%; }
+    .grid .col.s2of5 { width: 40%; }
+    .grid .col.s3of5 { width: 60%; }
+    .grid .col.s4of5 { width: 80%; }
+
+/*???????*/
+
+/* --------------- */
+/* -- Portfolio -- */
+/* --------------- */
+#portfolio{
+	margin:60px 0 50px 0;
+}
+#portfolio h2{
+	letter-spacing:-1px;
+	margin:0 0 40px 0;
+	font-size:20px;
+	font-style:italic;
+	color:#888;
+}
+.portfolio-item{
+	float:left;
+	width:280px;
+	height:200px;
+	margin:0 0 60px 60px;
+}
+.portfolio-item:hover{
+	opacity:0.7;
+}
+.first{
+	margin-left:0;
+}
+.portfolio-item img{
+	border:1px #ddd solid;
+}
+/* ------------- */
+/* -- Project -- */
+/* ------------- */
+#project-content{
+	float:left;
+	width:480px;
+}
+#project-header{
+	margin:0 0 25px 0;
+}
+#project-content h3{
+	margin:0 0 10px 0;
+}
+#project-content h3 span{
+	color:#888;
+}
+#project-image-large img{
+	float:right;
+	border:1px #ddd solid;
+}
+#project-content .read-more{
+	display:block;
+	background:url(../images/blue-button-bg.png) no-repeat;
+	width:141px;
+	height:34px;
+	color:#fff;
+	text-align:center;
+	padding:5px 0;
+	margin:25px 0 0 0;
+}
+#project-content .read-more:hover{
+	background:url(../images/red-button-bg.png) no-repeat;
+}
+#project-header h3{
+	margin-bottom:2px;
+}
+/**** BLOB LBOLB ***/
 
 /* D3 Stylings*/
 
