@@ -123,12 +123,18 @@ li {
 	margin-bottom: 3px;
 }
 
+h2 a {
+	border-bottom: none;
+}
+
 a {
 	text-decoration: none;
 	color: black;
 	border-bottom: 1px solid hotpink;
 	-webkit-transition: all ease-out 0.2s;
 }
+
+
 
 a:link {
 	text-decoration: none;
@@ -140,13 +146,16 @@ a:visited {
 	border-bottom-color: hotpink;
 }
 
-a:hover {
+a:hover,
+h1 a:hover {
 	text-decoration: none;
 	color: mediumvioletred;
 	border-bottom-color: mediumvioletred;
 }
 
-a:active {
+
+a:active,
+h1 a:active {
 	text-decoration: none;
 	color: mediumvioletred;
 	border-bottom-color: mediumvioletred;
