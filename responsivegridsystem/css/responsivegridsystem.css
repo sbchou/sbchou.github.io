@@ -35,12 +35,25 @@ color : #000;
 text-align: center;
 background: #fff ;
  
-border: 30px solid black;
+border: 25px solid black;
+position: relative;
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 /*border:black solid;
 border-width: 60px 50px 60px 50px;*/
+}
+
+
+ 
+span.highlight	{
+    background: rgb(255, 255, 0) transparent;
+    /* RGBa with 0.6 opacity, 0.3 for ballet */
+    background: rgba(255, 255, 0, 0.3);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
 }
 
 button, 
@@ -143,6 +156,7 @@ font-size: 1.5em; /* 24 / 16 */
 
 .heart {
 font-size: 1.5em; /* 24 / 16 */
+color: #dd2233;
 }
 
 ul, 
@@ -196,7 +210,7 @@ bottom : -.25em; }
 /* LINKS =============================================================================  */
 
 a { 
-color : #cc1122;
+color : black;
 -webkit-transition: all 0.3s ease;
 -moz-transition: all 0.3s ease;
 -o-transition: all 0.3s ease;
@@ -205,7 +219,7 @@ text-decoration: none;
 }
 
 a:visited { 
-color : #ee3344; }
+color : black; }
 
 a:focus { 
 outline : thin dotted; 
@@ -214,7 +228,7 @@ color : rgb(0,0,0); }
 a:hover, 
 a:active { 
 outline : 0;
-color : #dd2233;
+color : #dd2233; /* #dd2233 dark red */
 }
 
 
@@ -412,8 +426,24 @@ background-color : #ccc; }
 	text-align: left;
 }
 
+/*
+.header {
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: url(../img/ballet_bw.jpg) no-repeat center center; 
+
+
+  border: 50px solid black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*/
+
 	#headcontainer {
-		width: 100%;
+		width: 100%; 
 		background: url(/responsivegridsystem/img/rsz_photo3.jpg) no-repeat center top;
 	}
 
@@ -481,6 +511,47 @@ background-color : #ccc; }
 				position: relative;
 			}
 
+			.highlight	{
+		    background: rgb(255, 255, 0) transparent;
+		    /* RGBa with 0.6 opacity, 0.3 for ballet */
+		    background: rgba(255, 255, 0, 0.3);
+		    /* For IE 5.5 - 7*/
+		    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+		    /* For IE 8*/
+		    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+    		}
+
+	#dividercontainer {
+		width: 100%;	
+		border-top: 1px solid #000;
+		background: #222 url(/images/footerback.png) left top;
+	}
+	
+		divider {
+			clear: both;
+			width: 80%; /* 1000px / 1250px */
+			font-size: 0.8125em; /* 13 / 16 */
+			max-width: 92.3em; /* 1200px / 13 */
+			margin: 0 auto;
+			padding: 20px 0px 10px 0px;
+			color: #999;
+		}
+
+	#footercontainer {
+		width: 100%;	
+		border-top: 1px solid #000;
+		background: #222 url(/images/footerback.png) left top;
+	}
+	
+		footer {
+			clear: both;
+			width: 80%; /* 1000px / 1250px */
+			font-size: 0.8125em; /* 13 / 16 */
+			max-width: 92.3em; /* 1200px / 13 */
+			margin: 0 auto;
+			padding: 20px 0px 10px 0px;
+			color: #999;
+		}
 	#footercontainer {
 		width: 100%;	
 		border-top: 1px solid #000;
