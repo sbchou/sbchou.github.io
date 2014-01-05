@@ -33,8 +33,9 @@ padding : 0;
 font : 100%/1.4 Serif, 'lucida grande', 'Trebuchet MS', verdana, arial, helvetica, helve, sans-serif; 	
 color : #000; 
 text-align: center;
-background: #fff ;
- 
+/*background: #fff ; */
+background: rgb(240,240,240);
+
 border: 25px solid black;
 position: relative;
 -webkit-box-sizing: border-box;
@@ -262,6 +263,7 @@ max-width: 100%;
 height: auto;
 width: auto\9; /* ie8 */
 }
+
 
 img.floatleft { float: left; margin: 0 10px 0 0; }
 img.floatright { float: right; margin: 0 0 0 10px; }
@@ -764,18 +766,17 @@ strong.code {
 	max-width: 90%;
 	padding: 5%;
 	margin: 0 0 1em 0;
-	background: transparent url(/images/stripe-bg.png);
-	-webkit-transition: background 0.3s ease;
-	-moz-transition: background 0.3s ease;
-	-o-transition: background 0.3s ease;
-	transition: background 0.3s ease;
 }
 
 .siteimage:hover {
-	background: #bbb url(/images/stripe-bg.png);
-	position: relative;
-	top: -2px;
-	
+	opacity: 0.5;
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	/* slow fade opacity */
+  	transition:.5s;
+
 }
 
 /*  COLUMNS  ============================================================================= */
