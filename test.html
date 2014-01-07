@@ -1,204 +1,461 @@
 <!DOCTYPE html>
-<html>
+<!-- HTML5 Boilerplate -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 <head>
-    <title>Scale Graph</title>
+
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Example of the Responsive Grid System</title>
+	<meta name="description" content="This is the Responsive Grid System, a quick, easy and flexible way to create a responsive web site.">
+	<meta name="keywords" content="responsive, grid, system, web design">
+
+	<meta name="author" content="www.grahamrobertsonmiller.co.uk">
+
+	<meta http-equiv="cleartype" content="on">
+
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<!-- Responsive and mobile friendly stuff -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/html5reset.css" media="all">
+	<link rel="stylesheet" href="css/responsivegridsystem.css" media="all">
+	<link rel="stylesheet" href="css/col.css" media="all">
+	<link rel="stylesheet" href="css/2cols.css" media="all">
+	<link rel="stylesheet" href="css/3cols.css" media="all">
+	<link rel="stylesheet" href="css/4cols.css" media="all">
+	<link rel="stylesheet" href="css/5cols.css" media="all">
+	<link rel="stylesheet" href="css/6cols.css" media="all">
+	<link rel="stylesheet" href="css/7cols.css" media="all">
+	<link rel="stylesheet" href="css/8cols.css" media="all">
+	<link rel="stylesheet" href="css/9cols.css" media="all">
+	<link rel="stylesheet" href="css/10cols.css" media="all">
+	<link rel="stylesheet" href="css/11cols.css" media="all">
+	<link rel="stylesheet" href="css/12cols.css" media="all">
+
+	<!-- Responsive Stylesheets -->
+	<link rel="stylesheet" media="only screen and (max-width: 1024px) and (min-width: 769px)" href="/css/1024.css">
+	<link rel="stylesheet" media="only screen and (max-width: 768px) and (min-width: 481px)" href="/css/768.css">
+	<link rel="stylesheet" media="only screen and (max-width: 480px)" href="/css/480.css">
+
+	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements and feature detects -->
+	<script src="js/modernizr-2.5.3-min.js"></script>
+
+	<style type="text/css">
+
+	/*  THIS IS JUST TO GET THE GRID TO SHOW UP.  YOU DONT NEED THIS IN YOUR CODE */
+
+	#maincontent .col {
+		background: #ccc;
+		background: rgba(204, 204, 204, 0.85);
+
+	}
+
+	</style>
+
 </head>
+
 <body>
-    <div id="demoContainer">
-        <div id="option">
-            <input name="updateButton" type="button" value="Update" onclick="updateData()" />
-        </div>
-        <div id="mainGraph">
-        </div>
-    </div>
-    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
-    <script type="text/javascript">
-    /* Global variables */
 
-    /* Definition code */
-    function randomData() {
-        return d3.range(10).map(function(i) {
-            return {x: i / 9, y: Math.random()};
-        });
-    }
+<div id="skiptomain"><a href="#maincontent">skip to main content</a></div>
 
-    function reDomain(maxValue) {
-        var dy = Math.pow(10, Math.round(Math.log(maxValue) / Math.log(10)) - 1);
-        return Math.ceil(maxValue / dy) * dy;
-    }
+<div id="wrapper">
 
-    function updateData() {
-        var data = randomData();
-        var newMaxY = d3.max(data, function(d) {return d.y;});
-        var newCeilY = reDomain(newMaxY);
+	<div id="headcontainer">
+		<header>
+		<h1><em>Sophie Chou</em></h1>
+		<h2>is a badass mofo</h2>
+		<h3>who likes words</h3>
+		</header>
+	</div>
+	<div id="maincontentcontainer">
+		<div id="maincontent">
+			<div class="section group">
+				<div class="col span_1_of_8">
+				</div>
+				<div class="col span_1_of_8">
+				</div>
+				<div class="col span_1_of_8">
+				</div>
+				<div class="col span_1_of_8">
+				About
+				</div>
+				<div class="col span_1_of_8">
+				Blog
+				</div>
+				<div class="col span_1_of_8">
+				Portfolio
+				</div>
+				<div class="col span_1_of_8">
+				Twitter
+				</div>
+				<div class="col span_1_of_8">
+				Github
+				</div>
+			</div>
 
-        var w = 450,
-            h = 450,
-            x = d3.scale.linear().domain([0, 1]).range([0, w]),
-            y = d3.scale.linear().domain([0, newCeilY]).range([h, 0]);
+			<div class="section group">
+			<h3>Two Columns</h3>
+			</div>
 
-        var vis = d3.select("#mainGraph svg g");
+			<div class="section group">
+				<div class="col span_1_of_2">
+				1 of 2
+				</div>
+				<div class="col span_1_of_2">
+				1 of 2
+				</div>
+			</div>
 
-        var yrule = vis.selectAll("g.y")
-            .data(y.ticks(10));
+			<div class="section group">
+			<h3>Three Columns</h3>
+			</div>
 
-        // yRule Enter
-        var newrule = yrule.enter().append("svg:g")
-            .attr("class", "y");
+			<div class="section group">
+				<div class="col span_1_of_3">
+				1 of 3
+				</div>
+				<div class="col span_1_of_3">
+				1 of 3
+				</div>
+				<div class="col span_1_of_3">
+				1 of 3
+				</div>
+			</div>
 
-        newrule.append("svg:line")
-            .attr("class", "yLine")
-            .style("stroke", "#ccc")
-            .style("shape-rendering", "crispEdges")
-            .attr("x1", 0)
-            .attr("x2", w)
-            .attr("y1", 0)
-            .attr("y2", 0)
-            .transition()
-            .duration(2000)
-            .attr("y1", y)
-            .attr("y2", y);
+			<div class="section group">
+			<h3>Four Columns</h3>
+			</div>
 
-        newrule.append("svg:text")
-            .attr("class", "yText")
-            .attr("x", -3)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "end")
-            .attr("y", 0)
-            .transition()
-            .duration(2000)
-            .attr("y", y)
-            .text(y.tickFormat(10));
+			<div class="section group">
+				<div class="col span_1_of_4">
+				1 of 4
+				</div>
+				<div class="col span_1_of_4">
+				1 of 4
+				</div>
+				<div class="col span_1_of_4">
+				1 of 4
+				</div>
+				<div class="col span_1_of_4">
+				1 of 4
+				</div>
+			</div>
 
-        // yLine Update
-        yrule.select("line.yLine")
-            .transition()
-            .duration(2000)
-            .attr("y1", y)
-            .attr("y2", y);
+			<div class="section group">
+			<h3>Five Columns</h3>
+			</div>
 
-        // yText Update
-        yrule.select("text.yText")
-            .transition()
-            .duration(2000)
-            .attr("y", y)
-            .text(y.tickFormat(10));
+			<div class="section group">
+				<div class="col span_1_of_5">
+				1 of 5
+				</div>
+				<div class="col span_1_of_5">
+				1 of 5
+				</div>
+				<div class="col span_1_of_5">
+				1 of 5
+				</div>
+				<div class="col span_1_of_5">
+				1 of 5
+				</div>
+				<div class="col span_1_of_5">
+				1 of 5
+				</div>
+			</div>
 
-        // yrule Remove
-        var oldrule = yrule.exit();
+			<div class="section group">
+			<h3>Six Columns</h3>
+			</div>
 
-        oldrule.select("line.yLine")
-            .transition()
-            .duration(2000)
-            .attr("y1", 0)
-            .attr("y2", 0)
-            .remove();
+			<div class="section group">
+				<div class="col span_1_of_6">
+				1 of 6
+				</div>
+				<div class="col span_1_of_6">
+				1 of 6
+				</div>
+				<div class="col span_1_of_6">
+				1 of 6
+				</div>
+				<div class="col span_1_of_6">
+				1 of 6
+				</div>
+				<div class="col span_1_of_6">
+				1 of 6
+				</div>
+				<div class="col span_1_of_6">
+				1 of 6
+				</div>
+			</div>
+
+			<div class="section group">
+			<h3>Seven Columns</h3>
+			</div>
+
+			<div class="section group">
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+				<div class="col span_1_of_7">
+				1 of 7
+				</div>
+			</div>
+
+			<div class="section group">
+			<h3>Eight Columns</h3>
+			</div>
+
+			<div class="section group">
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+				<div class="col span_1_of_8">
+				1 of 8
+				</div>
+			</div>
+
+			<div class="section group">
+			<h3>Nine Columns</h3>
+			</div>
+
+			<div class="section group">
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+				<div class="col span_1_of_9">
+				1 of 9
+				</div>
+			</div>
+
+			<div class="section group">
+			<h3>Ten Columns</h3>
+			</div>
+
+			<div class="section group">
+				<div class="col span_1_of_10">
+				</div>
+				<div class="col span_1_of_10">
+				</div>
+				<div class="col span_1_of_10">
+				</div>
+				<div class="col span_1_of_10">
+				</div>
+				<div class="col span_1_of_10">
+				</div>
+				<div class="col span_1_of_10">
+				About
+				</div>
+				<div class="col span_1_of_10">
+				Blog
+				</div>
+				<div class="col span_1_of_10">
+				Portfolio
+				</div>
+				<div class="col span_1_of_10">
+				Twitter
+				</div>
+				<div class="col span_1_of_10">
+				Github
+				</div>
+			</div>
+
+			<div class="section group">
+			<h3>Eleven Columns</h3>
+			</div>
+
+			<div class="section group">
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+				<div class="col span_1_of_11">
+				1 of 11
+				</div>
+			</div>
 
 
-        oldrule.select("text.yText")
-            .transition()
-            .duration(2000)
-            .attr("y", 0)
-            .remove();
+			<div class="section group">
+			<h3>Twelve Columns</h3>
+			</div>
 
-        oldrule.transition()
-            .duration(2000).remove();
+			<div class="section group">
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+				<div class="col span_1_of_12">
+				1 of 12
+				</div>
+			</div>
+		</div>
+	</div>
 
-        // Dots
-        var node = vis.selectAll("path.dot")
-            .data(data)
-            .transition()
-            .duration(2000)
-            .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+	<div id="footercontainer">
+		<footer class="group">
+			<div class="col span_1_of_4">
+			<h4>About the Responsive Grid System</h4>
+			<p>Inspired by <a href="http://ethanmarcotte.com/">Ethan Marcotte</a>'s responsive web design, this site was set up in the spirit of giving something back.  I found something that works for me, and I want to share it.</p>
+			</div>
+			<div class="col span_1_of_4">
+			<h4>Problem, Officer?</h4>
+			<p>If you find any errors, or can suggest any improvements please <a href="mailto:grahamrobertsonmiller@gmail.com">email me</a>. I will have a mini strop before probably realising you're way cleverer than me.  If I use something you suggest, you'll get a shout-out.</p>
+			</div>
+			<div class="col span_1_of_4">
+			<h4>Are You Using It?</h4>
+			<p>I'd love to know if this has been of use, and especially if you're actually using the code.  Go on, <a href="mailto:grahamrobertsonmiller@gmail.com">let me know</a> and you could get featured here.</p>
+			</div>
+			<div class="col span_1_of_4">
+			<h4>Who Made This?</h4>
+			<p>Seeing as you asked, the <a href="http://www.responsivegridsystem.com">Responsive Grid System</a> is brought to you by <a href="http://www.grahamrobertsonmiller.co.uk">Graham Miller</a> and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
+			</div>
 
-        node.select("title.dotTitle")
-            .text(function(d) { return "X: " + d.x.toFixed(3) + ", Y: " + d.y.toFixed(3); });
+   			<br class="breaker" />
 
-    }
+			<div id="smallprint">
+			&copy; 2014 Sophie Chou. Meow 
+			<span class="heart">&hearts;</span>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
 
-    var initData = function() {
-        var data = randomData();
-        var newMaxY = d3.max(data, function(d) {return d.y;});
-        var newCeilY = reDomain(newMaxY);
+		</footer>
+	</div>
+</div>
 
-        var w = 450,
-            h = 450,
-            p = 50,
-            x = d3.scale.linear().domain([0, 1]).range([0, w]),
-            y = d3.scale.linear().domain([0, newCeilY]).range([h, 0]);
 
-        var chart = d3.select("#mainGraph")
-            .append("svg:svg")
-            .attr("width", w + p * 2)
-            .attr("height", h + p * 2);
 
-        var vis = chart.append("svg:g")
-            .attr("transform", "translate(" + p + "," + p + ")");
+	<!-- JavaScript at the bottom for fast page loading -->
 
-        var xrule = vis.selectAll("g.x")
-            .data(x.ticks(10))
-            .enter().append("svg:g")
-            .attr("class", "x");
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
 
-        xrule.append("svg:line")
-            .style("stroke", "#ccc")
-            .style("shape-rendering", "crispEdges")
-            .attr("x1", x)
-            .attr("x2", x)
-            .attr("y1", 0)
-            .attr("y2", h);
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	<script src="js/selectivizr-min.js"></script>
+	<![endif]-->
 
-        xrule.append("svg:text")
-            .attr("x", x)
-            .attr("y", h + 3)
-            .attr("dy", ".71em")
-            .attr("text-anchor", "middle")
-            .text(x.tickFormat(10));
 
-        var yrule = vis.selectAll("g.y")
-            .data(y.ticks(10))
-            .enter().append("svg:g")
-            .attr("class", "y");
+	<!-- More Scripts-->
+	<script src="js/responsivegridsystem.js"></script>
 
-        yrule.append("svg:line")
-            .attr("class", "yLine")
-            .style("stroke", "#ccc")
-            .style("shape-rendering", "crispEdges")
-            .attr("x1", 0)
-            .attr("x2", w)
-            .attr("y1", y)
-            .attr("y2", y);
 
-        yrule.append("svg:text")
-            .attr("class", "yText")
-            .attr("x", -3)
-            .attr("y", y)
-            .attr("dy", ".35em")
-            .attr("text-anchor", "end")
-            .text(y.tickFormat(10));
-
-        var node = vis.selectAll("path.dot")
-                .data(data)
-                .enter().append("svg:path")
-                .attr("class", "dot")
-                .style("fill", "white")
-                .style("stroke-width", "1.5px")
-                .attr("stroke", "#9acd32")
-                .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; })
-                .attr("d", d3.svg.symbol())
-                .on("mouseover", function(d,i) {
-                    d3.select(this).transition().duration(300).style("fill","#00ffff"); })
-                .on("mouseout", function(d,i) {
-                    d3.select(this).transition().duration(300).style("fill","white"); });
-
-        node.append("svg:title")
-            .attr("class", "dotTitle")
-            .text(function(d) { return "X: " + d.x.toFixed(3) + ", Y: " + d.y.toFixed(3); });
-    }
-
-    /* UI Events */
-    /* Execution code */
-    initData();
-    </script>
 </body>
 </html>

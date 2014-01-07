@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Sophie Chou</title>
+    <meta name="description" content="Hacker girl, writer, student" />
+    
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 480px)" href="css/narrow.css" />
+	<meta name="viewport" content="initial-scale=1.0" />
+	<script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic' rel='stylesheet' type='text/css'>
+  <!--GA TRACKING CODE-->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33681516-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+</head>
+
+<body id="home">
+	<div id="chart"></div>
+    <script type="text/javascript">
+
+      var width = 960,
+          height = 500,
+          node,
+          link,
+          root;
+
+      var force = d3.layout.force()
+          .on("tick", tick)
+          .charge(function(d) { return d._children ? -d.size / 100 : -30; })
+          .linkDistance(function(d) { return d.target._children ? 80 : 30; })
+          .size([width, height]);
+
+      var vis = d3.select("#chart").append("svg")
+          .attr("width", width)
+          .attr("height", height);
+
+      d3.json("data/flare.json", function(json) {
+        root = json;
+        root.fixed = true;
+        root.x = 0.1*width;
+        root.y = 0.8*height;
+        update();
+      });
+
+      function update() {
+        var nodes = flatten(root),
+            links = d3.layout.tree().links(nodes);
+
+        // Restart the force layout.
+        force
+            .nodes(nodes)
+            .links(links)
+            .start();
+
+        // Update the links…
+        link = vis.selectAll("line.link")
+            .data(links, function(d) { return d.target.id; });
+
+        // Enter any new links.
+        link.enter().insert("line", ".node")
+            .attr("class", "link")
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        // Exit any old links.
+        link.exit().remove();
+
+        // Update the nodes…
+        node = vis.selectAll("circle.node")
+            .data(nodes, function(d) { return d.id; })
+            .style("fill", color);
+
+        node.transition()
+            .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; });
+
+        // Enter any new nodes.
+        node.enter().append("circle")
+            .attr("class", "node")
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+            .attr("r", function(d) { return d.children ? 4.5 : Math.sqrt(d.size) / 10; })
+            .style("fill", color)
+            .on("click", click)
+            .call(force.drag);
+
+        // Exit any old nodes.
+        node.exit().remove();
+      }
+
+      function tick() {
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+      }
+
+      // Color leaf nodes orange, and packages white or blue.
+      function color(d) {
+        //color of grouped children, color of nodes, color of children 
+	return d._children ? "mediumvioletred" : d.children ? "pink" : "hotpink";
+      }
+
+      // Toggle children on click.
+      function click(d) {
+        if (d.children) {
+          d._children = d.children;
+          d.children = null;
+        } else {
+          d.children = d._children;
+          d._children = null;
+        }
+        update();
+      }
+
+      // Returns a list of all nodes under the root.
+      function flatten(root) {
+        var nodes = [], i = 0;
+
+        function recurse(node) {
+          if (node.children) node.size = node.children.reduce(function(p, v) { return p + recurse(v); }, 0);
+          if (!node.id) node.id = ++i;
+          nodes.push(node);
+          return node.size;
+        }
+
+        root.size = recurse(root);
+        return nodes;
+      }
+
+    </script>
+	<header>
+		<h1><a href="./">Sophie Chou</a><span class="profession">, hacker girl</span></h1>
+
+    <nav>
+      <ul>
+          <li>
+          <a href="./about.html">About</a>
+        </li>
+          <li>
+            <a target="_blank" href="http://blog.sophiechou.com/">Blog</a></li>
+        </li>
+          <li>
+          <a href="portfolio.html">Portfolio</a>
+        </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/mpetitchou">Twitter</a></li>
+        </li>
+          <li>
+          <a target="_blank" href="https://github.com/sbchou/">Github</a>
+        </li>
+      </ul>
+   </nav>
+
+	</header>
+
+	<!--[if lte IE 8]>
+		<div id="ie_warning"><strong>You&rsquo;re using an old version of Internet Explorer.</strong> Consider upgrading your browser to <a href="http://www.apple.com/safari/">Safari</a>, <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>, or <a href="http://www.google.com/chrome">Chrome</a>, and experience a more beautiful web!</div>
+	<![endif]-->
+
+	<noscript>
+		<div id="js_warning"><strong>JavaScript is turned off, so this page won&rsquo;t be very interactive.</strong> Switch JavaScript back on in your web browser for the full experience.</div>
+	</noscript>
+
+	<footer>
+		<p>Copyright &copy; 2013 Sophie Chou &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="note">*animation is a force directed graph built in <a target="_blank" href="http://d3js.org/">d3.js</a>. Try clicking on one of the light pink nodes!*</span></p>
+	</footer>
+
+</body>
+</html>
