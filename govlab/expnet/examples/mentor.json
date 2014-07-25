@@ -1,0 +1,90 @@
+{
+  "title": "Mentor",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "First and Last name",
+      "minLength": 4,
+      "default": "Billy Bob"
+    },
+    "email": { 
+      "type": "string",
+      "description": "Primary email",
+      "minLength": 8,
+      "default": "bob@example.com"
+    },
+    "phone number": {
+      "type": "string",
+      "description": "Enter 10-digit phone number, no spaces",
+      "minimum": 10,
+      "maximum": 10
+    },
+    "age": {
+      "type": "integer",
+      "default": 25,
+      "minimum": 18,
+      "maximum": 99
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "city": {
+      "type": "string",
+      "default": "New York" 
+    },
+    "state": {
+      "type": "string",
+      "description": "Please enter state abbreviation",
+      "default": "NY",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "country": {
+      "type": "string",
+      "default": "USA"
+    },
+    "organization name": {
+      "type": "string",
+      "description": "What is the name of the organization(s) you work with?"
+    },
+    "sector": {
+      "type": "string",
+      "description": "What type of organization do you work with?",
+      "enum": [
+        "National government",
+        "State/regional goverment",
+        "Municipal/city government",
+        "NGO/non-profit/international body",
+        "For-profit corporation",
+        "Other"
+        ],
+      "default": "NGO/non-profit/international boday" 
+    },
+    "specialties": {
+      "type": "string",
+      "description": "In what areas do you specialize?",
+      "enum": [
+        "Public policy, law or regulation",
+        "Business models, operations or leadership",
+        "Scientific research",
+        "Technology systems (design, build, user experience, oversight)",
+        "Other"
+      ]
+    },
+    "number of mentees": {
+      "type": "integer",
+      "description": "Ideally, how many students would you mentor?",
+      "default": 2
+    },
+    "interests": {
+      "type": "string",
+      "description": "Tell us more about yourself and what you're into!",
+      "default": "Hobbies, aspirations, skills..."
+    }
+  }
+}
