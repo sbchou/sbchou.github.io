@@ -20,6 +20,38 @@
       "minimum": 10,
       "maximum": 10
     },
+    "social media": {
+      "type": "array",
+      "format": "table",
+      "title": "Social Media",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Social Media",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Twitter",
+              "Facebook",
+              "Google+",
+              "other"
+            ],
+            "default": "Twitter"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "default": [
+        {
+          "type": "Twitter",
+          "name": "@myTwitter"
+        }
+      ]
+    },
+
     "age": {
       "type": "integer",
       "default": 25,
