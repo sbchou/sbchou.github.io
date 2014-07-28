@@ -1,5 +1,5 @@
 {
-  "title": "Mentor",
+  "title": "Mentee",
   "type": "object",
   "properties": {
     "name": {
@@ -88,17 +88,21 @@
       "type": "string",
       "default": "USA"
     },
-    "organization name": {
+    "current student": {
       "type": "string",
-      "description": "What is the name of the organization(s) you work with?"
+      "description": "Are you a current student?",
+      "enum": [
+        "yes",
+        "no"
+      ]
     },
-    "position": {
+    "school": {
       "type": "string",
-      "description": "What is your current position title?"
+      "description": "What school are you attending (or did you graduate from)?"
     },
     "sector": {
       "type": "string",
-      "description": "What type of organization do you work with?",
+      "description": "What type of organization are you interested in working with?",
       "enum": [
         "National government",
         "State/regional goverment",
@@ -111,7 +115,7 @@
     },
     "specialties": {
       "type": "string",
-      "description": "In what areas do you specialize?",
+      "description": "What areas do you plan to specialize in?",
       "enum": [
         "Public policy, law or regulation",
         "Business models, operations or leadership",
@@ -153,14 +157,9 @@
         }
       ]
     },
-    "number of mentees": {
-      "type": "integer",
-      "description": "Ideally, how many students would you mentor?",
-      "default": 2
-    },
     "availability": {
       "type": "string",
-      "description": "How many hours a week can you commit to mentoring students?",
+      "description": "How many hours a week are you availabile for mentorship oportunities?",
       "enum": [
         "Less than 1 hour",
         "1-2 hours",
@@ -170,13 +169,19 @@
     },
     "contribution": {
       "type": "string",
-      "description": "Tell us about what you can offer mentees.",
+      "description": "Tell us what makes you special",
       "default": "What can you bring to the table?"
     },
-    "skills": {
+    "skills (want)": {
       "type": "string",
       "description": "List your technical skills above (comma seperated values)",
       "default": "Skill 1, skill 2, skill 3.."
+    },
+    "skills (need)": {
+      "type": "string",
+      "description": "List the technical skills you wish to acquire above (comma seperated values)",
+      "default": "Skill 1, skill 2, skill 3.."
     }
+
   }
 }
