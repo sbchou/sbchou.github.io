@@ -1,0 +1,182 @@
+{
+  "title": "Mentor",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "First and Last name",
+      "minLength": 4,
+      "default": "Billy Bob"
+    },
+    "email": { 
+      "type": "string",
+      "description": "Primary email",
+      "minLength": 8,
+      "default": "bob@example.com"
+    },
+    "phone number": {
+      "type": "string",
+      "description": "Enter 10-digit phone number, no spaces",
+      "minimum": 10,
+      "maximum": 10
+    },
+    "social media": {
+      "type": "array",
+      "format": "table",
+      "title": "Social Media",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Social Media",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Twitter",
+              "Facebook",
+              "Google+",
+              "other"
+            ],
+            "default": "Twitter"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "default": [
+        {
+          "type": "Twitter",
+          "name": "@myTwitter"
+        }
+      ]
+    },
+    "sharing": {
+      "type": "string",
+      "description": "Can Govlab use your social media accounts to help form a better match?",
+      "enum": [
+        "Yes, please!",
+        "No, thanks"
+      ]
+
+    },
+    "age": {
+      "type": "integer",
+      "default": 25,
+      "minimum": 18,
+      "maximum": 99
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "city": {
+      "type": "string",
+      "default": "New York" 
+    },
+    "state": {
+      "type": "string",
+      "description": "Please enter state abbreviation",
+      "default": "NY",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "country": {
+      "type": "string",
+      "default": "USA"
+    },
+    "organization name": {
+      "type": "string",
+      "description": "What is the name of the organization(s) you work with?"
+    },
+    "position": {
+      "type": "string",
+      "description": "What is your current position title?"
+    },
+    "sector": {
+      "type": "string",
+      "description": "What type of organization do you work with?",
+      "enum": [
+        "National government",
+        "State/regional goverment",
+        "Municipal/city government",
+        "NGO/non-profit/international body",
+        "For-profit corporation",
+        "Other"
+        ],
+      "default": "NGO/non-profit/international boday" 
+    },
+    "specialties": {
+      "type": "string",
+      "description": "In what areas do you specialize?",
+      "enum": [
+        "Public policy, law or regulation",
+        "Business models, operations or leadership",
+        "Scientific research",
+        "Technology systems (design, build, user experience, oversight)",
+        "Other"
+      ]
+    },
+    "experience": {
+      "type": "array",
+      "format": "table",
+      "title": "Experience",
+      "uniqueItems": true,
+      "description": "Tell us more about your experiences running or contributing to projects",
+      "items": {
+        "type": "object",
+        "title": "Experience",
+        "properties": {
+          "year": {
+            "type": "integer"
+          },
+          "project name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      },
+      "default": [
+        {
+          "year": 2014,
+          "project name": "my awesome project",
+          "url": "www.thisproject.com",
+          "role": "project manager"
+        }
+      ]
+    },
+    "number of mentees": {
+      "type": "integer",
+      "description": "Ideally, how many students would you mentor?",
+      "default": 2
+    },
+    "availability": {
+      "type": "string",
+      "description": "How many hours a week can you commit to mentoring students?",
+      "enum": [
+        "Less than 1 hour",
+        "1-2 hours",
+        "2-3 hours",
+        "3 or more hours"
+      ]
+    },
+    "contribution": {
+      "type": "string",
+      "description": "Tell us about what you can offer mentees.",
+      "default": "What can you bring to the table?"
+    },
+    "skills": {
+      "type": "string",
+      "description": "List your technical skills above (comma seperated values)",
+      "default": "Skill 1, skill 2, skill 3.."
+    }
+  }
+}
