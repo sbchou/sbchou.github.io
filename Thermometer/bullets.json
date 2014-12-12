@@ -4,6 +4,6 @@
   {"title":"Chicago Tribune","subtitle":"Staff","ranges":[200],"measures":[91],"markers":[100]},
   {"title":"Seattles Times","subtitle":"Staff","ranges":[121],"measures":[60],"markers":[60.5]},
   {"title":"Politco","subtitle":"Staff","ranges":[151],"measures":[86],"markers":[75.5]},
-  {"title":"NPR","subtitle":"Staff","ranges":[344],"measures":[204],"markers":[172]},
-  {"title":"Gawker","subtitle":"Staff","ranges":[22],"measures":[11],"markers":[11]}
+  {"title":"NPR","subtitle":"Staff","ranges":[344],"measures":[204],"markers":[172]}
 ]
+
