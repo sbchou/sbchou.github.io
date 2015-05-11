@@ -673,7 +673,7 @@ Project
   font-weight: bold;
   font-style: normal;
   font-size: 0.875rem;
-  line-height: 1.5;
+  /*line-height: 1.5;*/
   letter-spacing: 0;
   text-transform: none;
   text-align: center;
