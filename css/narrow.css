@@ -14,6 +14,7 @@ canvas {
 }
 
 
+
 /* Header */
 
 header {
@@ -77,11 +78,13 @@ nav ul li {
 }
 
 
+
 /* Footer */
 
 footer {
 	margin-top: 50px;
 }
+
 
 
 /* Page-specific */
@@ -115,4 +118,53 @@ body#home footer {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+}
+
+/* Tutorials */
+
+body#tutorials-index ul.tutorials li {
+	width: 95%;
+}
+
+body.tutorial header {
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 72px;
+	width: 95%;
+}
+
+body.tutorial header h1 {
+	margin-left: 0;
+}
+
+body.tutorial header nav {
+	margin-left: 0;
+}
+
+body.tutorial h3 {
+	width: 95%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+body.tutorial h2 {
+	width: 95%;
+	font-size: 36px;
+	margin-top: 18px;
+	margin-bottom: 18px;
+	margin-left: 10px;
+}
+
+body.tutorial #text {
+	width: 95%;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+body.tutorial #text h2 {
+	margin-left: 0;
+}
+
+body.tutorial #text img {
+	margin-left: 0;
 }
