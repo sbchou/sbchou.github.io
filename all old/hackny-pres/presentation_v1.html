@@ -1,0 +1,330 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>hackNY 2012 Presentation</title>
+
+		<meta name="description" content="Sophie Chou's hackNY 2012 presentation in HTML5">
+		<meta name="author" content="Sophie Chou">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<!-- Linking styles -->
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lobster+Two:700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+		<link rel="stylesheet" href="lib/zenburn.css">
+		
+		<!--D3 Script Link-->
+		<script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+		<script src= "js/line-graph.js"></script>
+		
+		<!--for Latex-->
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+		</script>
+		<script type="text/javascript"
+		  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>	
+		<!--GA TRACKING CODE-->
+		<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-33681516-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+		</script>
+	</head>
+	
+	<body>
+		
+		<div id="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section>
+					<h1>hackNY 2012 Summer Presentation</h1>
+					<h3 class="inverted">Sophie Chou</h3>
+					<script>
+						// Delicously hacky. Look away.
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				</section>
+
+				<section>
+					<br></br><br></br>
+					Everyone hates powerpoints.
+				</section>
+
+				<section>
+					<h2>What does Intent Media do?</h2>
+					<ul>
+						<li>Intent advertising</li>
+						<li>Search engine concept, for travel</li>
+						<li>Use machine learning to try to predict who's out to buy, and who's out to browse</li>
+					</ul>
+			  	</section>
+
+			  	<section>
+			  		<h2>A picture</h2>
+			  		<img src="images/im-screenshot.png" alt="screenshot">
+			  	</section>
+
+			  	<section>
+			  		<h2>Publishers & Advertisers</h2>
+			  		<img src="images/publishers-and-advertisers.png" alt="screenshot">
+			  	</section>
+
+			  	<section>
+			  		<h2>The Challenge</h2>
+			  		As you can seem many companies serve both sides! <br></br>
+			  		How can we ensure that no client is at a disadvantage? <br></br>
+			  		<h3> < Machine Learning > </h3> 
+			  	</section>
+
+			  	<section>
+			  		pictures/plots to explain
+			  	</section>
+
+				<section>
+					<h1>
+					The Seasonality Model
+					</h1>
+				</section>
+			
+				<section>
+					<h2>
+						Basic (Multiple) Linear Regression
+					</h2>
+					$$Y_i = \beta_0 + \beta_1X_{i,1} + .... + \beta_PX_{i,P} + \epsilon_i$$
+					<ul>
+						<li>where $x_{i,p}$ is the value of the $p^{th}$ predictor at for the $i^{th}$ value of y </li>
+						<li>$\beta_0$ is the regression constant</li>
+						<li>$\beta_p$ is the coefficient on the $p^{th}$ predictor</li>
+						<li>P is the total number of predictors</li>
+						<li>$y_i$ is the predictand of the $i^{th}$ value of y</li>
+						<li>$e_i$ is the error term</li>
+					</ul>	
+				</section>
+			
+				<section>
+					<h2>Using Linear Algebra</h2>
+					$$Y = X\beta + \epsilon$$
+					a.k.a. 
+					$$
+					\begin{bmatrix}y_1\\y_2\\.\\.\\.\\y_n\end{bmatrix} = 
+					\begin{bmatrix} 1 & x_{11} & x_{12} & ... & x_{1p} \\ 1 & x_{21} & x_{22} & ... & x_{2p}\\  & & & ... & & & \\ & & & ... & & &\\ 1 & x_{n1} & x_{n2} & ... & x_{np}\end{bmatrix}
+					\begin{bmatrix}\beta_0 \\ \beta_1 \\... \\... \\... \\ \beta_p    \end{bmatrix} +
+					\begin{bmatrix}\epsilon_1\\\epsilon_2\\.\\.\\.\\\epsilon_n\end{bmatrix}
+					$$
+					**<i>Disclamer: knowledge of Linear Algebra based on Wikipedia</i>
+				</section>
+			
+				<section>
+					<h2>We want to solve for the coefficients $\beta$</h2>
+					where 
+					$$
+					\beta = (X^{\top}X)^{-1}X^{\top}Y
+					$$
+				</section>
+			
+				<section>
+					<h2>The Seasonality Problem</h2>
+					How can we predict publisher revenue based on patterns in behavior over time?<br></br>
+					For example, do people tend to buy more on Fridays versus Mondays?<br></br>
+					In the morning versus night?
+				</section>
+				
+				<section>
+					<h2>The Seasonality Model</h2>
+					using a simple regression,<br></br>
+					we want to generate the revenue $y$ based on selected input signals $x_1 ... x_j$.<br></br>
+					these are all indicator variables that take on the value 0|1 (a.k.a. booleans).
+				</section>
+				
+				<section>
+					<h2>Example: Weekday Seasonality</h2>
+					$$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_4x_4 + \beta_5x_5 + \beta_6x_6	$$
+					$y$ is the publisher revenue<br></br>
+					$x_1$...$x_6$ are the variables Monday through Saturday (either 0 or 1 depending on 
+					what day of the week it is; Sunday is the intercept)<br></br>
+					$\beta_0$...$\beta_6$ are the <i>average</i> values of the revenue on Sunday-Monday, respectively. <br></br>
+					This is what we are trying to find. 
+				</section>
+				
+				<section>
+					<h2>Example, con't</h2>
+					Let's say we only have one week's worth of data. Then,
+					<small>
+					$$x = \begin{bmatrix}Sunday\\Monday\\Monday\\Tuesday\\Tuesday\\Tuesday\\Wednesday\\Thursday\\Friday\\Friday\\Saturday\end{bmatrix} =
+					\begin{bmatrix}1 & 0 & 0 & 0 & 0 & 0 & 0\\1 & 1 & 0 & 0 & 0 & 0 & 0\\1 & 1 & 0 & 0 & 0 & 0 & 0\\1 & 0 & 1 & 0 & 0 & 0 & 0\\1 & 0 & 1 & 0 & 0 & 0 & 0\\1 & 0 & 1 & 0 & 0 & 0 & 0\\1 & 0 & 0 & 1 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 1 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 1 & 0\\1 & 0 & 0 & 0 & 0 & 1 & 0\\1 & 0 & 0 & 0 & 0 & 0 & 1\end{bmatrix}
+					y = \begin{bmatrix} $_{Sun} \\ $_{Mon} \\ \ $_{Mon} \\ $_{Tues} \\ $_{Tues} \\ $_{Tues} \\$_{Weds} \\ $_{Thurs} \\ $_{Fri} \\ $_{Fri} \\ $_{Sat} \end{bmatrix} = 
+					\begin{bmatrix} 0.0 \\ 0.5 \\ 0.5 \\1.0 \\ 1.5 \\ 1.5 \\ 0.0 \\ 0.5 \\ 1.0 \\ 0.5 \\ 1.0 \end{bmatrix}$$
+					</small>
+					The repetition of days means that several transactions occurred on that day.
+					This is a simplified example: In reality, there would be many, many values per day, of course! (<i>y-values hypothetical</i>)
+				</section>
+				
+				<section>
+					<h2>con't... </h2>
+					$$\beta = (X^{\top}X)^{-1}X^{\top}Y$$ 
+					$$\beta = \begin{bmatrix} \beta_{Sun} \\ \beta_{Mon} \\ \beta_{Tues}  \\ \beta_{Weds} \\ \beta_{Thurs} \\ \beta_{Fri} \\ \beta_{Sat} \end{bmatrix} =
+					\begin{bmatrix} 0.00 \\ 0.50 \\ 1.33 \\ 0.00 \\ 0.50 \\ 0.75 \\ 1.00 \end{bmatrix} $$
+					Which is indeed the average revenue per ad call on a given day!
+				</section>
+				
+				<section>
+					<h2>Downweighting</h2>
+					But what if we had two or more weeks of data?
+					We want the value of $\beta$ to be <i>cumulative</i>, but don't want the data from 6 months ago to be worth the same as yesterday's data! <br></br>
+					Data that is more recent is likely to be a better predictor for the revenue.
+				</section>
+				
+				<section>
+					<h2>con't...</h2>
+					introduce the variable $\gamma$ to <i>downweight</i> older data. <br></br>
+					Let's say we had $n$ weeks of data. Then, we'll multiply the $i^{th}$ week's data by $\gamma^{i-n}$, 
+					where i = 1, 2, ..., n. <br></br>
+					That means the most recent data has downweight $\gamma^0$, or no downweighting at all, 
+					whereas the first week will be downweighted by a multiple of $\gamma^{n-1}$, yielding a much smaller product. <br></br>
+					This means, of course, that $\gamma \le 1$, or else we'd get bigger and bigger values the farther we went back in time! <br></br>
+				</section>
+				
+				<section>
+					<h2>Cumulative Beta Example</h2>
+					Let's say, for example, we have 3 weeks of data, and we set $\gamma = 0.5$ (in other words, each week is worth half as much the further back you go in time). <br></br>
+					<small>
+					$$\beta_1 = (X_1^{\top}X_1)^{-1}(X_1^{\top}Y_1)$$
+					$$\beta_2 = (0.5*X_1^{\top}X_1 + X_2^{\top}X_2)^{-1}(0.5*X_1^{\top}Y_1 + X_2^{\top}Y_2)$$
+					$$\beta_3 = (0.25*X_1^{\top}X_1 + 0.5*X_2^{\top}X_2 + X_3^{\top}X_3)^{-1}(0.25*X_1^{\top}Y_1 + 0.5*X_2^{\top}Y_2 + X_3^{\top}Y_2)$$
+					</small>
+				</section>
+			
+				<section>
+					<h2>Implementation<h2>
+					<img height="125" width="98.2142856" src="http://www.python-tutorial.com/wp-content/uploads/2010/11/python-logo-glassy.png" alt="python">
+					+
+					<img height="125" width="125" src="http://www.redorbit.com/media/uploads/2004/10/0_746ac3fe2bf33c3a0a07b05a23c46e47.jpg" alt="java">
+					+
+					<img height="125" width="183.284457" src="http://animalblawg.files.wordpress.com/2010/03/pig.jpg" alt="pig">
+					+
+					<img width="123.75" height="125" src="http://a0.twimg.com/profile_images/1252505253/elephant_rgb_sq.png" alt="hadoop">
+					
+				</section>
+				
+				<section>
+					<h2>Average Revenue vs. Hour</h2>
+					<div id="graph"> </div>
+					<script>graph("data/hour_avg.csv", "Hour", "Revenue", "#graph");</script>
+				</section>
+			
+				<section>
+					<h2>Average Revenue vs. Weekday</h2>
+					<div id="graph2"> </div>
+					<script>graph("data/weekday_avg.csv", "Weekday", "Revenue", "#graph2");</script>
+				</section>
+
+				<section>
+					<h2>Average Revenue vs. Day of Month</h2>
+					<div id="graph3"> </div>
+					<script>graph("data/day_avg.csv", "Day", "Revenue", "#graph3");</script>
+				</section>
+
+				<section>
+					<h2>Average Revenue vs. Month</h2>
+					<div id="graph4"> </div>
+					<script>graph("data/month_avg.csv", "Month", "Revenue", "#graph4");</script>
+				</section>
+
+				<section>
+					<h1>Thank You!</h1>
+					<h3><a href="http://twitter.com/mpetitchou">@mpetitchou</a></h3>
+					<h3><a href="http://www.sophiechou.com">sophiechou.com</a></h3>
+				</section>
+			
+				
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+		<script src="lib/highlight.js"></script>
+		<script src="lib/classList.js"></script>
+		
+		<script src="js/reveal.js"></script>
+		
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			// Fires when a slide with data-state=customevent is activated
+			Reveal.addEventListener( 'customevent', function() {
+				alert( '"customevent" has fired' );
+			} );
+
+			// Fires each time a new slide is activated
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				// event.indexh & event.indexv
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Loops the presentation, defaults to false
+				loop: false,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+
+	</body>
+</html>

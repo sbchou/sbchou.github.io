@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Gender Thermometer</title>
+<style>
+
+@import url(style.css);
+
+.bullet { font: 10px sans-serif; }
+.bullet .marker { stroke: #000; stroke-width: 2px; }
+.bullet .axis line, .bullet .axis path { stroke: #666; stroke-width: .5px; fill: none; }
+.bullet .range.s0 { fill: #eee; }
+.bullet .range.s1 { fill: #ddd; }
+.bullet .range.s2 { fill: #ccc; }
+.bullet .measure.s0 { fill: lightpink; }
+.bullet .measure.s1 { fill: lightblue; }
+.bullet .title { font-size: 14px; font-weight: bold; }
+.bullet .subtitle { fill: #999; }
+
+</style>
+
+<p class="breadcrumbs"><a href="http://www.sophiechou.com/">Sophie Chou</a>
+<h1>Gender Thermometer</h1>
+<div class="wrapper">
+  <p>How close are we to achieving gender parity at popular news organizations?</p>
+</div>
+
+<div id="chart"></div> 
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="bullet.js"></script>
+<script>
+
+var margin = {top: 25, right: 40, bottom: 50, left: 80},
+    width = 150 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+
+var chart = d3.bullet()
+    .orient("bottom")
+    .width(width)
+    .height(height);
+
+d3.json("bullets.json", function(error, data) {
+  var svg = d3.select("#chart").selectAll("svg")
+      .data(data)
+    .enter().append("svg")
+      .attr("class", "bullet")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .call(chart);
+
+  var title = svg.append("g")
+      .style("text-anchor", "end")
+      .attr("transform", "translate(" + width + "," + (height + 20) + ")");
+
+  title.append("text")
+      .attr("class", "title")
+      .text(function(d) { return d.title; });
+
+  title.append("text")
+      .attr("class", "subtitle")
+      .attr("dy", "1em")
+      .text(function(d) { return d.subtitle; });
+});
+
+</script>
+
+</html>

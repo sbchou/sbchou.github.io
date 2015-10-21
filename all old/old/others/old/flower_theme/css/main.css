@@ -1,0 +1,328 @@
+/* 	CSS for GRAPH THEME*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+#wrap{
+	width:960px;
+	margin:0 auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: black;
+	background-color: #F2F2F2;
+	font-family: Baskerville, "Times New Roman", serif;
+	font-size: 16px;
+	line-height: 1.2;
+}
+
+/*For secret links and text*/
+body span.secret{
+	color:#F2F2F2; 
+	border-bottom: 1px solid #F2F2F2; 
+}
+
+a span.secret {
+	text-decoration: none;
+}
+
+/* Headings */
+
+h1 {
+	font-family: 'Playfair Display', Baskerville, "Times New Roman", serif;
+	font-size: 36px;
+	line-height: 30px;
+	font-style: italic;
+}
+
+h1 span.profession {
+	font-size: 20px;
+	font-style: normal;
+ 	color: black;
+}
+
+h1 span.big {
+	font-size: 60px;
+	font-style: normal;
+ 	color: black;
+	font-style: italic;
+}
+
+h2 {
+	margin-top: 10px;
+	font-size: 28px;
+	line-height: 28px;
+ 	color: black;
+}
+
+h3 {
+	margin-top: 30px;
+	font-size: 18px;
+	line-height: 18px;
+	color: black;
+}
+
+h4 {
+	margin-top: 30px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	font-size: 12px;
+	line-height: 12px;
+	font-weight: normal;
+	color: black;
+}
+
+h1, h2, h3 {
+	margin-left: 10px;
+	margin-bottom: 10px;
+	font-weight: normal;
+}
+
+h3 {
+	margin-bottom: 5px;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+	display: inline-block;
+	color: black;
+}
+
+h1 a:visited {
+	color: black;
+}
+
+
+/* Common elements */
+
+p {
+	margin-left: 10px;
+	margin-bottom: 14px;
+}
+
+ul {
+	margin-left: 10px;
+	margin-bottom: 14px;
+	padding-left: 15px;
+	list-style-type: square;
+}
+
+ol {
+	margin-left: 21px;
+	margin-bottom: 14px;
+	padding-left: 15px;
+	list-style-type: decimal-leading-zero;
+}
+
+li {
+	margin-bottom: 3px;
+}
+
+h2 a {
+	border-bottom: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	border-bottom: 1px solid hotpink;
+	-webkit-transition: all ease-out 0.2s;
+}
+
+
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+	border-bottom-color: hotpink;
+}
+
+a:hover,
+h1 a:hover {
+	text-decoration: none;
+	color: mediumvioletred;
+	border-bottom-color: mediumvioletred;
+}
+
+
+a:active,
+h1 a:active {
+	text-decoration: none;
+	color: mediumvioletred;
+	border-bottom-color: mediumvioletred;
+}
+
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+img {
+	border: none;
+}
+
+/* Header */
+
+header {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	width: 75%;
+	position: relative;
+}
+
+header h1 {
+	width: 290px;
+}
+
+nav {
+	position: absolute;
+	top: 13px;
+	left: 300px;
+	width: auto;
+}
+
+nav ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+nav ul li {
+	display: inline;
+	display: inline-block;
+	margin-right: 20px;
+	font-size: 16px;
+}
+
+/* Body */
+
+ 
+
+
+/* Footer */
+
+footer {
+	margin-top: 35px;
+	margin-bottom: 10px;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+footer span.note{
+	color:mediumvioletred;
+}
+
+/* Page-specific */
+
+body#home {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+body#home header {
+	position: absolute;
+	bottom: 25%;
+	left: 10%;
+}
+
+body#home header h1 {
+	font-size: 48px;
+	line-height: 36px;
+	width: auto;
+}
+
+body#home header nav {
+	position: inherit;
+	float: right;
+	top: 20px;
+	left: 420px;
+}
+
+body#home footer {
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+}
+
+body#home {
+	line-height: 0;
+}
+
+body#home nav ul li {
+	line-height: 16px;
+}
+
+/* Vertical Columns */
+
+.grid {
+}
+    .grid .col { float: left; }
+
+    .grid .col.s1of1 { width: 100%; }
+    .grid .col.s1of2 { width: 50%; }
+    .grid .col.s1of3 { width: 33.33333333%; }
+    .grid .col.s2of3 { width: 66.66666666%; }
+    .grid .col.s1of4 { width: 25%; }
+    .grid .col.s3of4 { width: 75%; }
+    .grid .col.s1of5 { width: 20%; }
+    .grid .col.s2of5 { width: 40%; }
+    .grid .col.s3of5 { width: 60%; }
+    .grid .col.s4of5 { width: 80%; }
+
+
+/* D3 Stylings*/
+
+#chart{
+	text-align: center;
+}
+#chart circle.node {
+  cursor: pointer;
+  stroke: black;
+  stroke-width: .5px;
+}
+
+#chart line.link {
+  fill: none;
+  stroke: #9ecae1; /*a lightsteelblue like color*/
+  stroke-width: 1.5px;
+}
+
+/* Hidden elements */
+
+.hidden {
+	display: none;
+}
+
+/*	Warnings	*/
+
+#ie_warning,
+#js_warning {
+	position: absolute;
+	right: 10px;
+	padding: 10px;
+	width: 320px;
+	background-color: #ff6666;
+	line-height: 16px;
+}
+
+#ie_warning {
+	top: 10px;
+}
+
+#js_warning {
+	top: 90px;
+}
